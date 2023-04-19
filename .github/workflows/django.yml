@@ -21,6 +21,9 @@ jobs:
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
+        host: ${{secrets.SSH_HOST}}   #IP of the server to SSH into
+        key: ${{secrets.SSH_KEY}}     #private or public key
+        username: ${{secrets.SSH_USERNAME}} #user of the server
         python-version: ${{ matrix.python-version }}
     - name: Install Dependencies
       run: |
